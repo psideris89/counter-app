@@ -6,8 +6,7 @@ export default class Homepage extends Component {
     super();
 
     this.state = {
-      userSessionId: null,
-      countryCode: null
+      jsonReturnedValue: null
     };
   }
 
