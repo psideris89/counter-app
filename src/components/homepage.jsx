@@ -8,8 +8,10 @@ export default class Homepage extends Component {
     this.state = {
       jsonReturnedValue: null
     };
+    this.renderAsda = this.renderAsda.bind(this);
   }
 
+  renderAsda() {}
   componentDidMount() {
     const icsSessionId = 'value_here';
 
