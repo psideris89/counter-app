@@ -14,6 +14,8 @@ class App extends Component {
     ]
   };
 
+  // Need to bind in the constructor if I don't want to use arrow function
+  // this.handleIncrement = this.handleIncrement.bind(this);
   handleIncrement = counter => {
     console.log('Event Handler Called Increment', counter);
     // Create copy cause we shouldn't manupulate directly the counters!
@@ -24,6 +26,15 @@ class App extends Component {
     countersCopy[index] = { ...counter };
     countersCopy[index].value++;
     // Set state based on the updated copy
+    this.setState({ counters: countersCopy });
+  };
+
+  handleReduce = counter => {
+    console.log('Event Handler Called Reduce', counter);
+    const countersCopy = [...this.state.counters];
+    const index = countersCopy.indexOf(counter);
+    countersCopy[index] = { ...counter };
+    countersCopy[index].value--;
     this.setState({ counters: countersCopy });
   };
 
@@ -53,6 +64,7 @@ class App extends Component {
           <Counters
             onReset={this.handleReset}
             onIncrement={this.handleIncrement}
+            onReduce={this.handleReduce}
             onDelete={this.handleDelete}
             counters={this.state.counters}
           />

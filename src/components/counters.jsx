@@ -16,6 +16,7 @@ class Counters extends React.Component {
             key={counter.id}
             onDelete={this.props.onDelete}
             onIncrement={this.props.onIncrement}
+            onReduce={this.props.onReduce}
             counter={counter}
           >
             <span>{counter.title}</span>
